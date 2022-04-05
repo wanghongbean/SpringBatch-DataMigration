@@ -4,7 +4,6 @@ import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
@@ -35,7 +34,7 @@ public class JobLauncherController {
     @RequestMapping(value = "/executeJob", method = RequestMethod.GET)
     public String launch(@RequestParam String jobName,
                          HttpServletRequest request) throws Exception {
-        JobParameters jobParameters = bulidParameters(request);
+        JobParameters jobParameters = buildParameters(request);
         JobExecution result = jobLauncher.run(jobRegistry.getJob(jobName),
                 jobParameters);
         //ExitStatus es = result.getExitStatus();
@@ -44,7 +43,7 @@ public class JobLauncherController {
 
     }
 
-    private JobParameters bulidParameters(HttpServletRequest request) {
+    private JobParameters buildParameters(HttpServletRequest request) {
         JobParametersBuilder builder = new JobParametersBuilder();
 
         Enumeration<String> paramNames = request.getParameterNames();
