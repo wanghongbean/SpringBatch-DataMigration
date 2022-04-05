@@ -11,3 +11,10 @@ mybatis、springBatch、mysql、quartz、spring、springMVC
 3.除了定时触发功能，还可以通过项目的index.jsp页面发起批处理job    
 4.2016-10-18-将原始的使用Map作为仓库修改为使用数据库来作为仓库，新增了data_rep及下面的表，同时引入相关数据源    
 更多SpringBatch资源请访问SpringBatch中文社区：www.springbatch.cn
+
+---------
+# custom
+1. 升级springBatch版本到4.3.0.release
+2. 数据链接问题，配置driverClassName并升级mysql驱动
+3. mysql docker 默认表名大小写敏感，修改data_rep库表名大写
+4. 启动demo success
